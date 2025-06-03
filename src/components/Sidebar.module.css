@@ -1,0 +1,142 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100vh;
+    width: 25%;
+    background-color: var(--grey-800);
+    padding-top: 3.5rem;
+}
+
+.sidebar__header h1 {
+    margin-bottom: 1rem;
+    font-size: 3.25rem;
+    font-weight: 600;
+}
+
+.sidebar__header p {
+    margin-bottom: 3.8rem;
+    font-size: 1.875rem;
+    font-weight: 400;
+}
+
+.sidebar__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+}
+
+.sidebar__taskDone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 13.75rem;
+    height: 5.3rem;
+    border-radius: 1.875rem;
+    background: var(--gradient-green);
+    gap: 0.4rem;
+
+    transition: 0.3s ease;
+}
+
+.sidebar__taskDone:hover {
+    transform: scale(1.03);
+}
+
+.sidebar__taskDone h1 {
+    font-size: 2rem;
+}
+
+.sidebar__taskDone p {
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.sidebar__totalTasks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 13.75rem;
+    height: 5.3125rem;
+    border-radius: 1.875rem;
+    background: var(--gradient-grey);
+    gap: 0.4rem;
+
+    transition: 0.3s ease;
+}
+
+.sidebar__totalTasks:hover {
+    transform: scale(1.03);
+}
+
+.sidebar__totalTasks h1 {
+    font-size: 2rem;
+}
+
+.sidebar__totalTasks p {
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.sidebar__notes {
+    margin-top: 3.25rem;
+}
+
+.sidebar__notes label {
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 0.5rem;
+}
+
+.sidebar__notes hr {
+    width: 16rem;
+    border: 1px solid var(--grey-400);
+    margin-top: 0.81rem;
+}
+
+.sidebar__noteTab textarea {
+    width: 14rem;
+    height: 5rem;
+    border-radius: 1.875rem;
+    font-family: var(--font);
+
+    padding: 1rem;
+    resize: none;
+    margin-top: 1.2rem;
+}
+
+.sidebar__addNoteTab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.2rem;
+
+    width: 16rem;
+    height: 4.3125rem;
+    border-radius: 1.875rem;
+    border: 1px solid var(--grey-400);
+    background: var(--grey-600);
+    cursor: pointer;
+
+    transition: 0.2s ease-in-out;
+}
+
+.sidebar__addNoteTab:hover {
+    transform: scale(1.03);
+}
+
+.sidebar__addNoteTab div {
+    transition: 0.2s ease-in-out;
+}
+
+.sidebar__addNoteTab:hover {
+    transform: scale(1.03);
+    color: var(--green-100);
+}

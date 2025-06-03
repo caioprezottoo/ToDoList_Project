@@ -1,0 +1,27 @@
+:root {
+  --grey-200: #F4F4F4;
+  --grey-400: #D9D9D9;
+  --grey-600: #373B46;
+  --grey-800: #292D34;
+  --blue: #0F518F;
+  --green-100: #1FE1AC;
+  --green-200: #208769;
+
+  --gradient-green: linear-gradient(180deg, #1FE1AC 0%, #156C54 100%);
+  --gradient-blue: linear-gradient(180deg, #0F518F 0%, #0E375E 100%);
+  --gradient-grey: linear-gradient(180deg, #6B7280 0%, #3F4146 100%);
+
+  --font: 'Geist';
+}
+
+* {
+  padding: 0 0;
+  margin: 0 0;
+}
+
+body {
+  background-color: var(--grey-600);
+  font-family: var(--font);
+  line-height: 140%;
+  color: var(--grey-200);
+}
