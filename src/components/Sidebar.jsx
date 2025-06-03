@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
 import styles from './Sidebar.module.css'
-import { PlusCircle } from '@phosphor-icons/react'
+import { PlusCircle, X } from '@phosphor-icons/react'
 
 export const Sidebar = () => {
-
   const [notes, setNotes] = useState([])
 
   const addNote = () => {
@@ -15,13 +14,19 @@ export const Sidebar = () => {
     setNotes([...notes, newNote])
   }
 
+  const removeNote = (id) => {
+    setNotes(notes.filter(note => note.id !== id))
+  }
+
   return (
     <div className={styles.sidebar}>
+      {/* Header */}
       <header className={styles.sidebar__header}>
         <h1>Hello there,</h1>
         <p>Let's plan together!</p>
       </header>
 
+      {/* Stats */}
       <div className={styles.sidebar__stats}>
         <div className={styles.sidebar__taskDone}>
           <h1>1</h1>
@@ -34,40 +39,36 @@ export const Sidebar = () => {
         </div>
       </div>
 
+      {/* Notes */}
       <div className={styles.sidebar__notes}>
         <label for="noteTab">Notes</label>
         <hr />
-
+        
+        {/* Note */}
         <div>
-          {/*{notes.map((note) => (
-            <div key={note.id} className="note-item">
+          {notes.map((note) => (
+            <div className={styles.sidebar__noteTab}>
               <textarea
-                value={note.content}
-                onChange={(e) => updateNote(note.id, e.target.value)}
-                placeholder="Enter your note..."
-                className="note-textarea"
-                rows={4}
+                id="noteTab"
+                name="noteTab"
+                placeholder='Text here...'
               />
               <button
                 onClick={() => removeNote(note.id)}
-                className="remove-note-btn"
-                aria-label="Remove note"
               >
+                <X size={22} />
               </button>
             </div>
-          ))}*/}
+          ))}
 
-          <div className={styles.sidebar__noteTab}>
-            {/* <textarea id="noteTab" name="noteTab"></textarea> */}
-            <div
-              className={styles.sidebar__addNoteTab}
-              onClick={addNote}
-            >
-              <div>
-                <PlusCircle size={32} />
-              </div>
-            </div>
+          {/* Add Note */}
+          <div
+            className={styles.sidebar__addNoteTab}
+            onClick={addNote}
+          >
+            <PlusCircle size={32} />
           </div>
+          
         </div>
 
       </div>

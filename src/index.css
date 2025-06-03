@@ -4,6 +4,7 @@
   --grey-600: #373B46;
   --grey-800: #292D34;
   --blue: #0F518F;
+  --red: #EF4444;
   --green-100: #1FE1AC;
   --green-200: #208769;
 
@@ -15,8 +16,9 @@
 }
 
 * {
-  padding: 0 0;
-  margin: 0 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {

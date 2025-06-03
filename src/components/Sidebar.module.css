@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
 
-    height: 100vh;
+    min-height: 100vh;
     width: 25%;
     background-color: var(--grey-800);
     padding-top: 3.5rem;
@@ -26,6 +26,7 @@
     flex-direction: column;
     gap: 1.25rem;
     text-align: center;
+    cursor: default;
 }
 
 .sidebar__taskDone {
@@ -96,14 +97,16 @@
 }
 
 .sidebar__notes hr {
-    width: 16rem;
+    width: 18rem;
     border: 1px solid var(--grey-400);
     margin-top: 0.81rem;
 }
 
-.sidebar__noteTab textarea {
-    width: 14rem;
-    height: 5rem;
+.sidebar__notes textarea {
+    display: flex;
+
+    width: 16rem;
+    height: 6rem;
     border-radius: 1.875rem;
     font-family: var(--font);
 
@@ -118,7 +121,7 @@
     align-items: center;
     margin-top: 1.2rem;
 
-    width: 16rem;
+    width: 18rem;
     height: 4.3125rem;
     border-radius: 1.875rem;
     border: 1px solid var(--grey-400);
@@ -129,14 +132,39 @@
 }
 
 .sidebar__addNoteTab:hover {
-    transform: scale(1.03);
+    background-color: var(--green-200);
 }
 
-.sidebar__addNoteTab div {
+.sidebar__noteTab {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.sidebar__noteTab button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+    border: none;
+    color: var(--grey-200);
+    cursor: pointer;
     transition: 0.2s ease-in-out;
 }
 
-.sidebar__addNoteTab:hover {
-    transform: scale(1.03);
-    color: var(--green-100);
+.sidebar__noteTab button:hover {
+    color: var(--red);
+}
+
+.sidebar__noteTab textarea {
+    display: flex;
+
+    width: 16rem;
+    height: 6rem;
+    border-radius: 1.875rem;
+    font-family: var(--font);
+
+    padding: 1rem;
+    resize: none;
+    margin-top: 1.2rem;
 }
