@@ -137,14 +137,14 @@
 
 .sidebar__noteTab {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
     gap: 0.5rem;
 }
 
 .sidebar__noteTab button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     background-color: transparent;
     border: none;
     color: var(--grey-200);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import styles from './Sidebar.module.css'
-import { PlusCircle, X } from '@phosphor-icons/react'
+import { PlusCircle, Trash } from '@phosphor-icons/react'
 
 export const Sidebar = () => {
   const [notes, setNotes] = useState([])
@@ -18,8 +18,15 @@ export const Sidebar = () => {
     setNotes(notes.filter(note => note.id !== id))
   }
 
+  const updateNote = (id, content) => {
+    setNotes(notes.map(note => (
+      note.id === id ? { ...note, content } : note
+    )))
+  }
+
   return (
     <div className={styles.sidebar}>
+
       {/* Header */}
       <header className={styles.sidebar__header}>
         <h1>Hello there,</h1>
@@ -43,12 +50,14 @@ export const Sidebar = () => {
       <div className={styles.sidebar__notes}>
         <label for="noteTab">Notes</label>
         <hr />
-        
+
         {/* Note */}
         <div>
           {notes.map((note) => (
             <div className={styles.sidebar__noteTab}>
               <textarea
+                value={note.content}
+                onChange={(e) => updateNote(note.id, e.target.value)}
                 id="noteTab"
                 name="noteTab"
                 placeholder='Text here...'
@@ -56,7 +65,7 @@ export const Sidebar = () => {
               <button
                 onClick={() => removeNote(note.id)}
               >
-                <X size={22} />
+                <Trash size={22} />
               </button>
             </div>
           ))}
@@ -68,12 +77,10 @@ export const Sidebar = () => {
           >
             <PlusCircle size={32} />
           </div>
-          
+
         </div>
 
       </div>
-
-
 
     </div>
   )
