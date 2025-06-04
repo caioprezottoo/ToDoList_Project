@@ -1,0 +1,18 @@
+.appLayout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.appLayout>*:first-child {
+    width: 25%;
+    flex-shrink: 0; /* Avoid sidebar from stretching */
+    /* Example: The screen is smaller, this makes sidebar to not reduce its size */
+}
+
+.appLayout>*:last-child {
+    flex: 1;
+    /* It starts with a width of 0 and it takes up all the remaining space. */
+    overflow-y: auto;
+    /* Content fits within the container height, no scrollbar.
+    Content exceeds the container height, shows vertical scrollbar */
+}
