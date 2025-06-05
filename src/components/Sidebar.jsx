@@ -35,12 +35,12 @@ export const Sidebar = () => {
 
       {/* Stats */}
       <div className={styles.sidebar__stats}>
-        <div className={styles.sidebar__taskDone}>
+        <div className={styles.sidebar__stats_taskDone}>
           <h1>1</h1>
           <p>Task Done</p>
         </div>
 
-        <div className={styles.sidebar__totalTasks}>
+        <div className={styles.sidebar__stats_totalTasks}>
           <h1>3</h1>
           <p>Total tasks</p>
         </div>
@@ -54,7 +54,7 @@ export const Sidebar = () => {
         {/* Note */}
         <div>
           {notes.map((note) => (
-            <div className={styles.sidebar__noteTab}>
+            <div className={styles.sidebar__notes_noteTab}>
               <textarea
                 value={note.content}
                 onChange={(e) => updateNote(note.id, e.target.value)}

@@ -26,7 +26,7 @@
     cursor: default;
 }
 
-.sidebar__taskDone {
+.sidebar__stats_taskDone {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,20 +41,20 @@
     transition: 0.3s ease;
 }
 
-.sidebar__taskDone:hover {
+.sidebar__stats_taskDone:hover {
     transform: scale(1.03);
 }
 
-.sidebar__taskDone h1 {
+.sidebar__stats_taskDone h1 {
     font-size: 2rem;
 }
 
-.sidebar__taskDone p {
+.sidebar__stats_taskDone p {
     font-size: 0.9375rem;
     font-weight: 500;
 }
 
-.sidebar__totalTasks {
+.sidebar__stats_totalTasks {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,15 +69,15 @@
     transition: 0.3s ease;
 }
 
-.sidebar__totalTasks:hover {
+.sidebar__stats_totalTasks:hover {
     transform: scale(1.03);
 }
 
-.sidebar__totalTasks h1 {
+.sidebar__stats_totalTasks h1 {
     font-size: 2rem;
 }
 
-.sidebar__totalTasks p {
+.sidebar__stats_totalTasks p {
     font-size: 0.9375rem;
     font-weight: 500;
 }
@@ -97,6 +97,7 @@
     width: 18rem;
     border: 1px solid var(--grey-400);
     margin-top: 0.81rem;
+    opacity: 0.6;
 }
 
 .sidebar__notes textarea {
@@ -132,7 +133,7 @@
     background-color: var(--green-200);
 }
 
-.sidebar__noteTab {
+.sidebar__notes_noteTab {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -141,7 +142,7 @@
     gap: 0.5rem;
 }
 
-.sidebar__noteTab button {
+.sidebar__notes_noteTab button {
     background-color: transparent;
     border: none;
     color: var(--grey-200);
@@ -149,11 +150,11 @@
     transition: 0.2s ease-in;
 }
 
-.sidebar__noteTab button:hover {
+.sidebar__notes_noteTab button:hover {
     color: var(--red);
 }
 
-.sidebar__noteTab textarea {
+.sidebar__notes_noteTab textarea {
     display: flex;
 
     width: 16rem;

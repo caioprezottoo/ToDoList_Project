@@ -1,5 +1,107 @@
-.taskManagerBody {
-  margin-left: 40rem;
-  padding: 0;
-  box-sizing: border-box;
+.tm__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 6rem;
+}
+
+.tm__header div {
+  width: 35%;
+  padding: 1rem;
+}
+
+.tm__header h1 {
+  padding-left: 1rem;
+}
+
+.tm__header hr {
+  width: 100%;
+  border: 1px solid var(--grey-400);
+  margin: 0.91rem 0 1.11rem 0;
+  opacity: 0.6;
+}
+
+.tm__header nav {
+  display: flex;
+  flex-direction: row;
+
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.tm__addTasks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin: 2rem 0 6rem 0;
+  gap: 1rem;
+}
+
+.tm__addTasks input {
+  width: 35rem;
+  height: 3rem;
+
+  border-radius: 0.625rem;
+  background-color: var(--grey-800);
+  border: none;
+  padding-left: 1rem;
+  color: var(--grey-200);
+  font-size: 1rem;
+}
+
+.tm__addTasks button {
+  background-color: transparent;
+  border: none;
+  color: var(--grey-200);
+  cursor: pointer;
+  transition: 0.2s;
+  color: var(--grey-200);
+  text-decoration-color: aliceblue;
+}
+
+.tm__addTasks button:hover {
+  transform: scale(1.05);
+}
+
+.tm__taskDisplay {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm__taskDisplay_task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 25.5rem;
+  height: 4.5rem;
+  padding: 2rem;
+  margin: 1rem;
+
+  gap: 1rem;
+  background: var(--grey-800);
+  border-radius: 1.875rem;
+}
+
+.tm__taskDisplay_task div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 1.5rem;
+}
+
+.tm__taskDisplay_task button {
+  background-color: transparent;
+  border: none;
+  color: var(--grey-200);
+  cursor: pointer;
+  transition: 0.2s ease-in;
 }
