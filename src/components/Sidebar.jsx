@@ -36,8 +36,8 @@ export const Sidebar = () => {
       {/* Stats */}
       <div className={styles.sidebar__stats}>
         <div className={styles.sidebar__stats_taskDone}>
-          <h1>1</h1>
-          <p>Task Done</p>
+          <h1>{}</h1>
+          <p>Tasks Done</p>
         </div>
 
         <div className={styles.sidebar__stats_totalTasks}>

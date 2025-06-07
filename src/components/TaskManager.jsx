@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import styles from './TaskManager.module.css'
-import { PlusCircle, X, CheckCircle } from '@phosphor-icons/react'
+import { PlusCircle, X, CheckCircle, Circle } from '@phosphor-icons/react'
 
 
 export const TaskManager = () => {
   const [taskText, setTaskText] = useState('')
   const [tasks, setTasks] = useState([])
+  const [filter, setFilter] = useState('all')
+  // default value of filter is all
 
   const addTask = () => {
     if (taskText.trim() === '')
@@ -13,11 +15,13 @@ export const TaskManager = () => {
 
     const newTask = {
       id: Date.now(),
-      content: taskText
+      content: taskText,
+      isCompleted: false
     }
     setTasks([...tasks, newTask])
 
     setTaskText('')
+
   }
 
   const removeTask = (id) => {
@@ -28,6 +32,14 @@ export const TaskManager = () => {
     setTaskText(e.target.value)
   }
 
+  const toggleTaskCompletion = (id) => {
+    setTasks(tasks.map(task => task.id === id ? { ...task, isCompleted: !task.isCompleted } : task))
+  }
+
+  const filteredTasks = tasks.filter(task => {
+    return (filter === 'all') || (filter === 'done' && task.isCompleted) || (filter === 'inProgress' && !task.isCompleted)
+  })
+
   return (
     <div>
       {/* Header */}
@@ -36,8 +48,22 @@ export const TaskManager = () => {
           <h1>Tasks</h1>
           <hr />
           <nav>
-            <p>All tasks</p>
-            <p>Done</p>
+            <button
+              onClick={() => setFilter('all')}
+              className={filter === 'all' ? styles.active : styles.inactive}
+            >
+              All tasks
+            </button>
+            <button
+              onClick={() => setFilter('inProgress')}
+              className={filter === 'inProgress' ? styles.active : styles.inactive}
+            >
+              In Progress
+            </button>
+            <button
+              onClick={() => setFilter('done')}
+              className={filter === 'done' ? styles.active : styles.inactive}
+            >Done</button>
           </nav>
         </div>
       </header>
@@ -49,8 +75,8 @@ export const TaskManager = () => {
           placeholder='Add a new task'
           onChange={handleInputChange}
           value={taskText}
-          // "The current displayed value of this input field must always 
-          // be whatever the taskText state variable holds."
+        // "The current displayed value of this input field must always 
+        // be whatever the taskText state variable holds."
         />
         <button onClick={addTask}>
           <PlusCircle size={32} />
@@ -59,16 +85,21 @@ export const TaskManager = () => {
 
       {/* Tasks */}
       <div className={styles.tm__taskDisplay}>
-        {tasks.map((task) => (
+        {filteredTasks.map((task) => (
           <div
             key={task.id}
-            className={styles.tm__taskDisplay_task}
+            className={task.isCompleted ? styles.tm__taskDisplay_task_completedBorder : styles.tm__taskDisplay_task}
           >
             <div>
-              <button><CheckCircle size={22} /></button>
+              <button
+                onClick={() => toggleTaskCompletion(task.id)}
+                className={task.isCompleted ? styles.tm__taskDisplay_task_completed : styles.tm__taskDisplay_task_button}
+              >
+                <Circle size={22} />
+              </button>
               <h3>{task.content}</h3>
             </div>
-            <button onClick={() => removeTask(task.id)}><X size={22} /></button>
+            <button className={styles.tm__taskDisplay_task_removeButton} onClick={() => removeTask(task.id)}><X size={22} /></button>
           </div>
         ))}
       </div>

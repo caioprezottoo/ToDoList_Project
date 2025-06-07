@@ -31,6 +31,28 @@
   padding-left: 1rem;
 }
 
+.active {
+  border-radius: 1rem;
+  width: calc(30% - 1rem);
+  height: 2.1rem;
+  border: none;
+  background: rgba(240, 240, 240, 0.42);
+  color: var(--grey-200);
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+.inactive {
+  border-radius: 1rem;
+  width: 4.5rem;
+  height: 2.1rem;
+  border: none;
+  background-color: transparent;
+  color: var(--grey-200);
+  cursor: pointer;
+  transition: 0.1s ease-in;
+}
+
 .tm__addTasks {
   display: flex;
   flex-direction: row;
@@ -98,10 +120,53 @@
   gap: 1.5rem;
 }
 
-.tm__taskDisplay_task button {
+.tm__taskDisplay_task_removeButton {
   background-color: transparent;
   border: none;
   color: var(--grey-200);
   cursor: pointer;
   transition: 0.2s ease-in;
+}
+
+.tm__taskDisplay_task_button {
+  color: var(--grey-200);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+
+.tm__taskDisplay_task_completed {
+  background-color: transparent;
+  border: none;
+  color: var(--green-200);
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+
+.tm__taskDisplay_task_completedBorder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 25.5rem;
+  height: 4.5rem;
+  padding: 2rem;
+  margin: 1rem;
+
+  gap: 1rem;
+  background: var(--grey-800);
+  border-radius: 1.875rem;
+  border: 1px solid var(--green-200);
+
+  transition: 0.2s ease-in;
+}
+
+.tm__taskDisplay_task_completedBorder div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 1.5rem;
 }
