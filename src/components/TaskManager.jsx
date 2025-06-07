@@ -1,39 +1,25 @@
 import React, { useState } from 'react'
 import styles from './TaskManager.module.css'
-import { PlusCircle, X, CheckCircle, Circle } from '@phosphor-icons/react'
+import { PlusCircle, X, XCircle, Circle } from '@phosphor-icons/react'
 
-
-export const TaskManager = () => {
+export const TaskManager = ({ tasks, addTask, removeTask, toggleTaskCompletion }) => {
   const [taskText, setTaskText] = useState('')
-  const [tasks, setTasks] = useState([])
   const [filter, setFilter] = useState('all')
   // default value of filter is all
 
-  const addTask = () => {
-    if (taskText.trim() === '')
-      return;
-
-    const newTask = {
-      id: Date.now(),
-      content: taskText,
-      isCompleted: false
-    }
-    setTasks([...tasks, newTask])
-
+  const handleAddTask = () => {
+    addTask(taskText)
     setTaskText('')
-
-  }
-
-  const removeTask = (id) => {
-    setTasks(tasks.filter(task => task.id !== id))
   }
 
   const handleInputChange = (e) => {
     setTaskText(e.target.value)
   }
 
-  const toggleTaskCompletion = (id) => {
-    setTasks(tasks.map(task => task.id === id ? { ...task, isCompleted: !task.isCompleted } : task))
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleAddTask()
+    }
   }
 
   const filteredTasks = tasks.filter(task => {
@@ -63,7 +49,8 @@ export const TaskManager = () => {
             <button
               onClick={() => setFilter('done')}
               className={filter === 'done' ? styles.active : styles.inactive}
-            >Done</button>
+            >Done
+            </button>
           </nav>
         </div>
       </header>
@@ -74,18 +61,26 @@ export const TaskManager = () => {
           type="text"
           placeholder='Add a new task'
           onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
           value={taskText}
-        // "The current displayed value of this input field must always 
-        // be whatever the taskText state variable holds."
         />
-        <button onClick={addTask}>
+        <button onClick={handleAddTask}>
           <PlusCircle size={32} />
         </button>
       </div>
 
       {/* Tasks */}
       <div className={styles.tm__taskDisplay}>
+        {tasks.length < 1 ? (
+          <div className={styles.tm__taskDisplay_noTasks}>
+            <XCircle size={22} />
+            <p>No tasks to Display</p>
+          </div>
+        ) : ''}
+
+
         {filteredTasks.map((task) => (
+
           <div
             key={task.id}
             className={task.isCompleted ? styles.tm__taskDisplay_task_completedBorder : styles.tm__taskDisplay_task}
@@ -103,9 +98,6 @@ export const TaskManager = () => {
           </div>
         ))}
       </div>
-
-
-
     </div>
   )
 }

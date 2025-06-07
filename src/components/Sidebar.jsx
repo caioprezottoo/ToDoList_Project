@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styles from './Sidebar.module.css'
 import { PlusCircle, Trash } from '@phosphor-icons/react'
 
-export const Sidebar = () => {
+export const Sidebar = ({ totalTasks, completedTasks }) => {
   const [notes, setNotes] = useState([])
 
   const addNote = () => {
@@ -36,25 +36,25 @@ export const Sidebar = () => {
       {/* Stats */}
       <div className={styles.sidebar__stats}>
         <div className={styles.sidebar__stats_taskDone}>
-          <h1>{}</h1>
-          <p>Tasks Done</p>
+          <h1>{completedTasks}</h1>
+          <p>Task{completedTasks !== 1 ? 's' : ''} Done</p>
         </div>
 
         <div className={styles.sidebar__stats_totalTasks}>
-          <h1>3</h1>
+          <h1>{totalTasks}</h1>
           <p>Total tasks</p>
         </div>
       </div>
 
       {/* Notes */}
       <div className={styles.sidebar__notes}>
-        <label for="noteTab">Notes</label>
+        <label htmlFor="noteTab">Notes</label>
         <hr />
 
         {/* Note */}
         <div>
           {notes.map((note) => (
-            <div className={styles.sidebar__notes_noteTab}>
+            <div key={note.id} className={styles.sidebar__notes_noteTab}>
               <textarea
                 value={note.content}
                 onChange={(e) => updateNote(note.id, e.target.value)}
