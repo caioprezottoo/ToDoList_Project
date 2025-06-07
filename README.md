@@ -18,14 +18,14 @@ A simple and intuitive ToDo List application for managing your daily tasks and s
 - **Icons:** Phosphor icons
 - **Fonts:** Google Fonts
 
-## 🎯 Usage
+## Usage
 
 1. **Adding Tasks**: Click the "Add Task" button or use the input field to create new tasks
 2. **Completing Tasks**: Click the checkbox next to a task to mark it as complete
 4. **Deleting Tasks**: Click the delete button (trash icon) to remove tasks
 5. **Filtering**: Use the filter buttons to view all, active, or completed tasks
 
-## ⚡ Key Features Explained
+## Key Features Explained
 
 ### Task Management
 - **Add Tasks**: Users can add new tasks with a simple input interface
@@ -35,7 +35,7 @@ A simple and intuitive ToDo List application for managing your daily tasks and s
 - **Intuitive Icons**: Clear visual indicators for different actions
 - **Smooth Animations**: Enhanced user experience with CSS transitions
 
-## 👨‍💻 Author
+## Author
 
 **Caio Prezotto**
 - GitHub: [@caioprezottoo](https://github.com/caioprezottoo)
